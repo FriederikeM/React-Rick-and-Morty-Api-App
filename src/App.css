@@ -1,6 +1,7 @@
 .App {
   height: 100vh;
   display: grid;
+  grid-template-rows: [header] 80px [main] auto;
   place-items: center;
   color: #04b1c5;
   background-color: #111440;
