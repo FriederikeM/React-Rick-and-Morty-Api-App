@@ -2,8 +2,18 @@
   height: 100vh;
   display: grid;
   grid-template-rows: [header] 80px [main] auto;
-  place-items: center;
   color: #04b1c5;
-  background-color: #111440;
   font-size: 2em;
+}
+
+.header {
+  background-color: rgba(226, 28, 200, 0.39);
+  filter: blur(15px);
+  background-image: url(./images/wallpaper.png);
+  position: relative;
+}
+
+.main {
+  overflow-y: scroll;
+  background-color: rgb(0, 0, 0);
 }

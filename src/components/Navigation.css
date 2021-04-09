@@ -1,3 +1,7 @@
+.navigation {
+  position: absolute;
+}
+
 .navigation a {
   text-decoration: none;
   padding: 0 15px;

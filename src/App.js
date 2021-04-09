@@ -9,19 +9,18 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="header">
-          <Navigation />
-        </header>
+        <header className="header"></header>
+        <Navigation />
         <main className="main">
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
+            <Route exact path="/characters/:id">
+              <IndividualCharacter />
+            </Route>
             <Route path="/characters">
               <CharactersList />
-            </Route>
-            <Route path="/characters/">
-              <IndividualCharacter />
             </Route>
           </Switch>
         </main>

@@ -1,21 +1,56 @@
+.characters-main {
+  display: flex;
+  flex-direction: column;
+}
+
 .character-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  padding: 20px;
+  grid-gap: 40px;
+  margin-top: 150px;
+}
+
+.character-item {
+  list-style: none;
+  margin-bottom: 15px;
 }
 
 .character-card {
   list-style: none;
-  border: 1px solid black;
-  background-color: rgb(255, 255, 146);
-  min-width: 200px;
-  height: 200px;
+  border-radius: 20px;
+  width: 230px;
+  height: 220px;
+  position: relative;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px;
+}
+
+.img-container {
+  position: absolute;
+  top: -70px;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.img-container img {
+  width: 100%;
+  display: block;
+  border-radius: 20px 20px 0 0;
+}
+
+.name-container {
+  text-align: center;
+  position: relative;
+  top: 110px;
+  transform: rotate(-8.5deg);
+}
+
+.name-container h6 {
+  text-shadow: 2px 2px 0px rgb(0, 225, 255), -2px -2px 0px red;
+  color: whitesmoke;
 }
 
 .character-list a {
@@ -23,18 +58,22 @@
   color: black;
 }
 
-.character-card img {
-  width: 100px;
-}
-
-.character-card h6 {
-  max-width: 150px;
-  text-align: center;
-}
-
 .load-more-button {
   padding: 10px 20px;
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
+}
+
+.alive {
+  background-color: rgb(128, 15, 128);
+  box-shadow: 0 5px 25px 5px rgba(231, 47, 255, 0.301);
+}
+.dead {
+  background-color: rgb(26, 156, 0);
+  box-shadow: 0 5px 25px 5px rgba(26, 156, 0, 0.301);
+}
+.unknown {
+  background-color: rgb(0, 19, 189);
+  box-shadow: 0 5px 25px 5px rgba(0, 24, 241, 0.37);
 }
