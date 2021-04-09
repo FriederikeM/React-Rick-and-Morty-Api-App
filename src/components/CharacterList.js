@@ -28,14 +28,14 @@ export default function CharactersList() {
   }
   function renderCharacters() {
     return characters.map((character) => {
-      const { id, name, status, gender, species, type, image } = character;
+      const { id, name, image } = character;
       return (
-        <Link to={`./character/${id}`}>
-          <li key={id} className="character-card">
+        <li key={id} className="character-card">
+          <Link to={`/characters/${id}`}>
             <img src={image} alt={name} />
             <h6>{name}</h6>
-          </li>
-        </Link>
+          </Link>
+        </li>
       );
     });
   }
