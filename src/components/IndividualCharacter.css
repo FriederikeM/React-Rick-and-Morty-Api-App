@@ -1,0 +1,19 @@
+.individual-character {
+  position: relative;
+  top: -120px;
+}
+
+.individual-character h4 {
+  text-align: center;
+}
+
+.individual-character-box ul {
+  list-style: none;
+}
+.individual-character-box img {
+  width: 350px;
+}
+
+.individual-character-box .description {
+  font-size: 16px;
+}
