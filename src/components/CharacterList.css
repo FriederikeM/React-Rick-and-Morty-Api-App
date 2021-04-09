@@ -1,0 +1,40 @@
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.character-card {
+  list-style: none;
+  border: 1px solid black;
+  background-color: rgb(255, 255, 146);
+  min-width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+}
+
+.character-list a {
+  text-decoration: none;
+  color: black;
+}
+
+.character-card img {
+  width: 100px;
+}
+
+.character-card h6 {
+  max-width: 150px;
+  text-align: center;
+}
+
+.load-more-button {
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+}
