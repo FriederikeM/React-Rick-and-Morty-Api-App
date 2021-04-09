@@ -1,0 +1,6 @@
+.filter-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(50%);
+}

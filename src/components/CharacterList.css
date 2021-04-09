@@ -51,6 +51,7 @@
 .name-container h6 {
   text-shadow: 2px 2px 0px rgb(0, 225, 255), -2px -2px 0px red;
   color: whitesmoke;
+  font-size: 1.3em;
 }
 
 .character-list a {

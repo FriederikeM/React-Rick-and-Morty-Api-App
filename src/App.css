@@ -2,8 +2,8 @@
   height: 100vh;
   display: grid;
   grid-template-rows: [header] 80px [main] auto;
-  color: #04b1c5;
-  font-size: 2em;
+
+  color: whitesmoke;
 }
 
 .header {
