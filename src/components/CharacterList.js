@@ -64,10 +64,8 @@ export default function CharactersList() {
 
   return (
     <div>
-      <div className="filter-section">
-        <Filter />
-      </div>
       <div className="characters-main">
+        <Filter />
         <ul className="character-list">{renderCharacters()}</ul>
         {page < totalPages && (
           <button className="load-more-button" onClick={handleLoadMore}>

@@ -2,14 +2,13 @@
   height: 100vh;
   display: grid;
   grid-template-rows: [header] 80px [main] auto;
-
   color: whitesmoke;
 }
 
 .header {
   background-color: rgba(226, 28, 200, 0.39);
-  filter: blur(15px);
-  background-image: url(./images/wallpaper.png);
+  /* filter: blur(15px);
+  background-image: url(./images/wallpaper.png); */
   position: relative;
 }
 
