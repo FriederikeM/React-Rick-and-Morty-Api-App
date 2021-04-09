@@ -26,14 +26,36 @@ export default function CharactersList() {
       setPage(page + 1);
     }
   }
+
   function renderCharacters() {
     return characters.map((character) => {
-      const { id, name, image } = character;
+      const { id, name, image, status } = character;
+      let classForAlive;
+      if (status === "Alive") {
+        classForAlive = "alive";
+      }
+      let classForDead;
+      if (status === "Dead") {
+        classForDead = "dead";
+      }
+      let classForUnknown;
+      if (status === "unknown") {
+        classForUnknown = "unknown";
+      }
+
       return (
-        <li key={id} className="character-card">
+        <li key={id} className="character-item">
           <Link to={`/characters/${id}`}>
-            <img src={image} alt={name} />
-            <h6>{name}</h6>
+            <div
+              className={`character-card ${classForAlive} ${classForDead} ${classForUnknown}`}
+            >
+              <div className="img-container">
+                <img src={image} alt={name} />
+              </div>
+              <div className="name-container">
+                <h6>{name}</h6>
+              </div>
+            </div>
           </Link>
         </li>
       );
@@ -41,8 +63,10 @@ export default function CharactersList() {
   }
 
   return (
-    <div>
-      <Filter />
+    <div className="characters-main">
+      <div className="filter-section">
+        <Filter />
+      </div>
       <ul className="character-list">{renderCharacters()}</ul>
       {page < totalPages && (
         <button className="load-more-button" onClick={handleLoadMore}>
