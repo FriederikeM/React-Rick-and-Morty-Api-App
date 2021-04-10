@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./IndividualCharacter.css";
 
 export default function IndividualCharacter() {
+  const history = useHistory();
   const { id } = useParams();
   const [character, setCharacter] = useState({});
 
@@ -36,6 +37,7 @@ export default function IndividualCharacter() {
           </ul>
         </div>
       </div>
+      <button onClick={() => history.goBack()}>Go back</button>
     </article>
   );
 }
