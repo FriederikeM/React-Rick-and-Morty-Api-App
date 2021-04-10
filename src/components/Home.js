@@ -4,7 +4,11 @@ import "./Home.css";
 export default function Home() {
   return (
     <div className="welcome">
-      <h3 className="welcome-message">Welcome to the Rick and Morty App</h3>
+      <h1 className="welcome-message">
+        <span className="start-heading">Welcome </span>
+        <span className="rest-heading">to the Rick and Morty App</span>
+      </h1>
+
       <img
         className="welcome-img hidden-small"
         src={wallpaper}
