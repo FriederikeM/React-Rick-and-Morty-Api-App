@@ -25,7 +25,9 @@ export default function IndividualCharacter() {
 
   return (
     <article className="individual-character">
-      <h4>{character.name}</h4>
+      <div className="name-wrapper">
+        <h4>{character.name}</h4>
+      </div>
       <div className="background-wrapper">
         <div className="individual-character-box">
           <img src={character.image} alt={character.name} />
@@ -37,7 +39,11 @@ export default function IndividualCharacter() {
           </ul>
         </div>
       </div>
-      <button onClick={() => history.goBack()}>Go back</button>
+      <div className="back-button-wrapper">
+        <button className="back-button" onClick={() => history.goBack()}>
+          GO BACK
+        </button>
+      </div>
     </article>
   );
 }

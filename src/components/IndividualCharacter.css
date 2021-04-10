@@ -1,15 +1,18 @@
 .individual-character {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-.individual-character h4 {
+.name-wrapper {
   text-align: center;
   font-size: 2.3em;
-  margin: 35px 0;
   text-shadow: 2px 2px 0px rgb(0, 225, 255), -2px -2px 0px red;
+}
+
+.name-wrapper h4 {
+  margin: 25px 0;
 }
 
 .background-wrapper {
@@ -50,5 +53,67 @@
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: 1px;
-  color: #0a005f;
+  color: #070042;
+}
+
+.back-button-wrapper {
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #06003dd2;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 30px;
+  border: none;
+  z-index: 1;
+  box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.664);
+  cursor: pointer;
+}
+
+.back-button:hover {
+  animation: animate 8s linear infinite;
+  color: #06003d;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.back-button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  right: -5px;
+  left: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 40px;
+  filter: blur(20px);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.back-button:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
 }
