@@ -7,6 +7,7 @@ export default function CharactersList() {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     const url = `https://rickandmortyapi.com/api/character/?page=${page}`;
@@ -27,8 +28,38 @@ export default function CharactersList() {
     }
   }
 
+  function handleFilterChange(filterValue) {
+    if (filterValue === "dead") {
+      setFilter("dead");
+    } else if (filterValue === "alive") {
+      setFilter("alive");
+    } else if (filterValue === "unknown") {
+      setFilter("unknown");
+    } else if (filterValue === "all") {
+      setFilter("");
+    }
+  }
+
   function renderCharacters() {
-    return characters.map((character) => {
+    let filteredCharacters;
+    if (filter === "dead") {
+      filteredCharacters = characters.filter(
+        (character) => character.status === "Dead"
+      );
+      console.log(characters);
+    } else if (filter === "alive") {
+      filteredCharacters = characters.filter(
+        (character) => character.status === "Alive"
+      );
+    } else if (filter === "unknown") {
+      filteredCharacters = characters.filter(
+        (character) => character.status === "unknown"
+      );
+    } else {
+      filteredCharacters = characters;
+    }
+
+    return filteredCharacters.map((character) => {
       const { id, name, image, status } = character;
       let classForAlive;
       if (status === "Alive") {
@@ -65,7 +96,7 @@ export default function CharactersList() {
   return (
     <div>
       <div className="characters-main">
-        <Filter />
+        <Filter onFilterChange={handleFilterChange} />
         <ul className="character-list">{renderCharacters()}</ul>
         {page < totalPages && (
           <button className="load-more-button" onClick={handleLoadMore}>
