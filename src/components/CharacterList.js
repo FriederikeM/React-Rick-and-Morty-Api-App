@@ -7,7 +7,8 @@ export default function CharactersList() {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("all");
+  const [nameFilter, setNameFilter] = useState("");
 
   useEffect(() => {
     const url = `https://rickandmortyapi.com/api/character/?page=${page}`;
@@ -28,75 +29,60 @@ export default function CharactersList() {
     }
   }
 
-  function handleFilterChange(filterValue) {
-    if (filterValue === "dead") {
-      setFilter("dead");
-    } else if (filterValue === "alive") {
-      setFilter("alive");
-    } else if (filterValue === "unknown") {
+  function handleStatusFilterChange(statusFilterValue) {
+    if (statusFilterValue === "Dead") {
+      setFilter("Dead");
+    } else if (statusFilterValue === "Alive") {
+      setFilter("Alive");
+    } else if (statusFilterValue === "unknown") {
       setFilter("unknown");
-    } else if (filterValue === "all") {
-      setFilter("");
+    } else if (statusFilterValue === "all") {
+      setFilter("all");
     }
   }
 
+  function handleNameFilterChange(nameFilterValue) {
+    setNameFilter(nameFilterValue);
+  }
+
   function renderCharacters() {
-    let filteredCharacters;
-    if (filter === "dead") {
-      filteredCharacters = characters.filter(
-        (character) => character.status === "Dead"
-      );
-      console.log(characters);
-    } else if (filter === "alive") {
-      filteredCharacters = characters.filter(
-        (character) => character.status === "Alive"
-      );
-    } else if (filter === "unknown") {
-      filteredCharacters = characters.filter(
-        (character) => character.status === "unknown"
-      );
-    } else {
-      filteredCharacters = characters;
-    }
+    return characters
+      .filter((character) => {
+        return character.status === filter || filter === "all";
+      })
+      .filter((character) => {
+        return (
+          character.name.toLowerCase().includes(nameFilter.toLowerCase()) ||
+          nameFilter === ""
+        );
+      })
+      .map((character) => {
+        const { id, name, image, status } = character;
 
-    return filteredCharacters.map((character) => {
-      const { id, name, image, status } = character;
-      let classForAlive;
-      if (status === "Alive") {
-        classForAlive = "alive";
-      }
-      let classForDead;
-      if (status === "Dead") {
-        classForDead = "dead";
-      }
-      let classForUnknown;
-      if (status === "unknown") {
-        classForUnknown = "unknown";
-      }
-
-      return (
-        <li key={id} className="character-item">
-          <Link to={`/characters/${id}`}>
-            <div
-              className={`character-card ${classForAlive} ${classForDead} ${classForUnknown}`}
-            >
-              <div className="img-container">
-                <img src={image} alt={name} />
+        return (
+          <li key={id} className="character-item">
+            <Link to={`/characters/${id}`}>
+              <div className={`character-card ${status}`}>
+                <div className="img-container">
+                  <img src={image} alt={name} />
+                </div>
+                <div className="name-container">
+                  <h6>{name}</h6>
+                </div>
               </div>
-              <div className="name-container">
-                <h6>{name}</h6>
-              </div>
-            </div>
-          </Link>
-        </li>
-      );
-    });
+            </Link>
+          </li>
+        );
+      });
   }
 
   return (
     <div>
       <div className="characters-main">
-        <Filter onFilterChange={handleFilterChange} />
+        <Filter
+          onStatusFilterChange={handleStatusFilterChange}
+          onNameFilterChange={handleNameFilterChange}
+        />
         <ul className="character-list">{renderCharacters()}</ul>
         {page < totalPages && (
           <button className="load-more-button" onClick={handleLoadMore}>

@@ -1,26 +1,32 @@
 import "./Filter.css";
 
-export default function Filter({ onFilterChange }) {
+export default function Filter({ onStatusFilterChange, onNameFilterChange }) {
   function handleFilterSelection(event) {
-    const filterValue = event.target.value;
-    onFilterChange(filterValue);
+    event.preventDefault();
+    const filterValueStatus = event.target.value;
+    onStatusFilterChange(filterValueStatus);
+  }
+  function handleNameFilter(event) {
+    event.preventDefault();
+    const filterValueName = event.target.charactername.value;
+    onNameFilterChange(filterValueName);
   }
 
   return (
     <div className="filter-form-container">
-      <form className="filter-form">
+      <form onSubmit={handleNameFilter} className="filter-form">
         <label htmlFor="character-name">Name</label>
         <input
           type="text"
-          name="character-name"
-          id="character-name"
-          placeholder="Search for you favourite character"
+          name="charactername"
+          id="charactername"
+          placeholder="Search for your favourite character"
         />
         <label htmlFor="status">Status</label>
         <select onClick={handleFilterSelection} name="status" id="status">
           <option value="all">All</option>
-          <option value="dead">Dead</option>
-          <option value="alive">Alive</option>
+          <option value="Dead">Dead</option>
+          <option value="Alive">Alive</option>
           <option value="unknown">Unknown</option>
         </select>
         <button type="submit" className="filter-form-button"></button>
