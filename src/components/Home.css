@@ -24,11 +24,13 @@
   text-align: center;
   background-color: transparent;
   animation: welcome 3s 1;
+  text-shadow: 2px 0 0 #ffffff;
 }
 
 @keyframes welcome {
   0% {
     color: transparent;
+    text-shadow: none;
     margin-bottom: -40px;
   }
   50% {

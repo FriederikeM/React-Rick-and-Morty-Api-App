@@ -85,9 +85,11 @@ export default function CharactersList() {
         />
         <ul className="character-list">{renderCharacters()}</ul>
         {page < totalPages && (
-          <button className="load-more-button" onClick={handleLoadMore}>
-            Load more characters here
-          </button>
+          <div className="load-more-button-wrapper">
+            <button className="load-more-button" onClick={handleLoadMore}>
+              Load more
+            </button>
+          </div>
         )}
       </div>
     </div>
