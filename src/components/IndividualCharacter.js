@@ -16,17 +16,25 @@ export default function IndividualCharacter() {
       });
   }, [id]);
 
+  function capitalize(status) {
+    if (status) {
+      return status[0].toUpperCase() + status.slice(1);
+    }
+  }
+
   return (
     <article className="individual-character">
       <h4>{character.name}</h4>
-      <div className="individual-character-box">
-        <img src={character.image} alt={character.name} />
-        <ul className="description">
-          <li>Status: {character.status}</li>
-          <li>Gender: {character.gender}</li>
-          <li>Species: {character.species}</li>
-          {character.type !== "" && <li>Type: {character.type}</li>}
-        </ul>
+      <div className="background-wrapper">
+        <div className="individual-character-box">
+          <img src={character.image} alt={character.name} />
+          <ul className="description">
+            <li>Status: {capitalize(character.status)}</li>
+            <li>Gender: {capitalize(character.gender)}</li>
+            <li>Species: {character.species}</li>
+            {character.type !== "" && <li>Type: {character.type}</li>}
+          </ul>
+        </div>
       </div>
     </article>
   );
