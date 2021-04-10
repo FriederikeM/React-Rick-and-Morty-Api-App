@@ -38,7 +38,7 @@
   box-shadow: 0 12px 10px rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 320px) and (max-width: 586px) and (-webkit-min-device-pixel-ratio: 2) {
   .header-wrapper {
     position: absolute;
     top: 5px;

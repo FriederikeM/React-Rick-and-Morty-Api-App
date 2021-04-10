@@ -21,9 +21,10 @@
 .main {
   overflow-y: scroll;
   background-color: rgba(5, 1, 10, 0.959);
+  overflow-x: hidden;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-width: 320px) and (max-width: 586px) and (-webkit-min-device-pixel-ratio: 2) {
   .header {
     background-image: linear-gradient(
       to right,
