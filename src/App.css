@@ -7,8 +7,8 @@
 
 .header {
   background-color: rgba(226, 28, 200, 0.39);
-  /* filter: blur(15px);
-  background-image: url(./images/wallpaper.png); */
+  filter: blur(15px);
+  background-image: url(./images/wallpaper.png);
   position: relative;
 }
 

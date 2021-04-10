@@ -9,9 +9,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="header">
-          <Navigation />
-        </header>
+        <header className="header"></header>
+        <Navigation />
         <main className="main">
           <Switch>
             <Route exact path="/">
