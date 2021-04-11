@@ -31,7 +31,7 @@ export default function IndividualCharacter() {
       <div className="background-wrapper">
         <div className="individual-character-box">
           <img src={character.image} alt={character.name} />
-          <ul className="description">
+          <ul className={`description ${character.type !== "" && "type-yes"} `}>
             <li>Status: {capitalize(character.status)}</li>
             <li>Gender: {capitalize(character.gender)}</li>
             <li>Species: {character.species}</li>
