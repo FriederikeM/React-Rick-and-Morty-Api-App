@@ -58,7 +58,6 @@ export default function CharactersList() {
       })
       .map((character) => {
         const { id, name, image, status } = character;
-
         return (
           <li key={id} className="character-item">
             <Link to={`/characters/${id}`}>
@@ -78,20 +77,20 @@ export default function CharactersList() {
 
   return (
     <div>
+      <Filter
+        onStatusFilterChange={handleStatusFilterChange}
+        onNameFilterChange={handleNameFilterChange}
+      />
       <div className="characters-main">
-        <Filter
-          onStatusFilterChange={handleStatusFilterChange}
-          onNameFilterChange={handleNameFilterChange}
-        />
         <ul className="character-list">{renderCharacters()}</ul>
-        {page < totalPages && (
-          <div className="load-more-button-wrapper">
-            <button className="load-more-button" onClick={handleLoadMore}>
-              Load more
-            </button>
-          </div>
-        )}
       </div>
+      {page < totalPages && (
+        <div className="load-more-button-wrapper">
+          <button className="load-more-button" onClick={handleLoadMore}>
+            Load more
+          </button>
+        </div>
+      )}
     </div>
   );
 }

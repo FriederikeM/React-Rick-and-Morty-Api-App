@@ -8,15 +8,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  position: relative;
 }
 
-.hidden-small {
-  display: none;
+.welcome-message {
+  position: relative;
+  top: -70px;
 }
 
 .start-heading {
   position: relative;
-  font-size: 90px;
+  font-size: 120px;
   color: #000000;
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -43,6 +45,7 @@
   text-transform: uppercase;
   text-align: center;
   color: hotpink;
+  font-size: 40px;
   background-color: black;
   display: block;
   animation: rest 3s 1;
@@ -63,29 +66,14 @@
   color: white;
   text-shadow: 0px 1px 2px black;
   font-size: 20px;
+  text-align: center;
+  position: relative;
+  top: 35px;
 }
 
 @media screen and (max-width: 1252px) {
-  .welcome {
-    background-color: rgb(110, 0, 68);
-    background-image: none;
-    box-shadow: inset 0px 25px 15px rgba(0, 0, 0, 0.5);
-  }
-
-  .hidden-small {
-    display: block;
-    width: 480px;
-  }
-
   .start-heading {
-    position: relative;
     font-size: 60px;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    display: block;
-    text-align: center;
-    background-color: transparent;
     animation: welcome 3s 1;
   }
 
@@ -104,8 +92,6 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 40px;
-    color: #000;
-    background-color: #ffffff;
     display: block;
     animation: rest 3s 1;
   }
@@ -119,19 +105,5 @@
       letter-spacing: 5px;
       margin-top: 60px;
     }
-  }
-  .credits {
-    color: #ffffff;
-    text-shadow: none;
-    font-size: 20px;
-    text-align: center;
-  }
-}
-
-@media only screen and (min-device-width: 320px) and (max-width: 586px) and (-webkit-min-device-pixel-ratio: 2) {
-  .welcome {
-    background-color: rgb(255, 115, 115);
-    background-image: none;
-    box-shadow: inset 0px 25px 15px rgba(0, 0, 0, 0.5);
   }
 }
