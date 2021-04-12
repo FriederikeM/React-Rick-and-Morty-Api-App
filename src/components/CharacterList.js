@@ -7,7 +7,7 @@ export default function CharactersList() {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
-  const [filter, setFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState("all");
   const [nameFilter, setNameFilter] = useState("");
 
   useEffect(() => {
@@ -30,15 +30,7 @@ export default function CharactersList() {
   }
 
   function handleStatusFilterChange(statusFilterValue) {
-    if (statusFilterValue === "Dead") {
-      setFilter("Dead");
-    } else if (statusFilterValue === "Alive") {
-      setFilter("Alive");
-    } else if (statusFilterValue === "unknown") {
-      setFilter("unknown");
-    } else if (statusFilterValue === "all") {
-      setFilter("all");
-    }
+    setStatusFilter(statusFilterValue);
   }
 
   function handleNameFilterChange(nameFilterValue) {
@@ -48,7 +40,7 @@ export default function CharactersList() {
   function renderCharacters() {
     return characters
       .filter((character) => {
-        return character.status === filter || filter === "all";
+        return character.status === statusFilter || statusFilter === "all";
       })
       .filter((character) => {
         return (
