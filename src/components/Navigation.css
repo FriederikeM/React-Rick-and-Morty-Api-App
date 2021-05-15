@@ -1,6 +1,5 @@
 .navigation-wrapper {
-  position: absolute;
-  top: 8px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
