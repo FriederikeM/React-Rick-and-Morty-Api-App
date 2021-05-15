@@ -35,7 +35,7 @@ export default function Filter({ onStatusFilterChange, onNameFilterChange }) {
         </div>
       </form>
       <select
-        onClick={handleFilterSelection}
+        onChange={handleFilterSelection}
         name="status"
         id="status"
         className="select-status"
