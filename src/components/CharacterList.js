@@ -37,7 +37,7 @@ export default function CharactersList() {
     setNameFilter(nameFilterValue);
   }
 
-  function renderCharacters() {
+  function renderFilteredCharacters() {
     return characters
       .filter((character) => {
         return character.status === statusFilter || statusFilter === "all";
@@ -74,7 +74,7 @@ export default function CharactersList() {
         onNameFilterChange={handleNameFilterChange}
       />
       <div className="characters-main">
-        <ul className="character-list">{renderCharacters()}</ul>
+        <ul className="character-list">{renderFilteredCharacters()}</ul>
       </div>
       {page < totalPages && (
         <div className="load-more-button-wrapper">
