@@ -14,7 +14,7 @@
     #35d030 80%,
     #30cfd0 100%
   );
-  filter: blur(35px);
+  backdrop-filter: blur(3px);
   position: relative;
 }
 
