@@ -3,7 +3,6 @@ import { FaSearch } from "react-icons/fa";
 
 export default function Filter({ onStatusFilterChange, onNameFilterChange }) {
   function handleFilterSelection(event) {
-    event.preventDefault();
     const filterValueStatus = event.target.value;
     onStatusFilterChange(filterValueStatus);
   }
